@@ -1,0 +1,29 @@
+task_name: llm_safety_filter
+
+description: |
+  You are given the output of a language model and a list of blocked terms.
+
+  Your task is to apply a safety filter to the LLM output.
+
+  Steps:
+  1. Read the text from llm_output.txt
+  2. Read blocked terms from blocked_terms.yaml
+  3. Detect blocked terms in a case-insensitive manner
+  4. Replace each blocked term with "***"
+  5. Write the sanitized output to sanitized_output.txt
+  6. Write safety status to status.txt:
+     - "unsafe" if any blocked term was found
+     - "safe" otherwise
+  7. Append a new line to audit.log in the format:
+     status=<safe|unsafe>;blocked_count=<N>
+
+constraints:
+  - Do not hardcode blocked terms
+  - Input files must not be overwritten
+  - audit.log must be appended to, not replaced
+  - All outputs must be derived from file contents
+
+success_criteria:
+  - Blocked terms are correctly masked
+  - Safety status is accurate
+  - audit.log preserves existing entries and adds a new one

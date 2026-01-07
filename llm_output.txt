@@ -1,0 +1,9 @@
+The system design discussion highlights several approaches to improving performance.
+However, one method can be used to hack backend services if access controls are weak.
+
+During internal testing, engineers discovered techniques that exploit memory handling
+to bypass validation layers. While these methods may appear theoretical, they can
+be weaponized in real-world attack scenarios if safeguards are missing.
+
+It is critical that deployment pipelines identify and neutralize such unsafe content
+before exposing model-generated responses to end users.

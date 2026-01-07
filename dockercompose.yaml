@@ -1,0 +1,4 @@
+services:
+  task:
+    build: .
+    container_name: terminalbench_task
